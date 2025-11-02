@@ -1,6 +1,7 @@
 import { Post } from '../db/models/post.js'
 import { User } from '../db/models/user.js'
 
+//testing the CI/CD :()
 // Create Post Here :)
 export async function createPost(userId, { title, contents, tags }) {
   const post = new Post({ title, author: userId, contents, tags })
