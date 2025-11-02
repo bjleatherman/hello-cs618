@@ -1,10 +1,8 @@
 import mongoose, { Schema } from 'mongoose'
-
-// Mongoose Post Schema
 const postSchema = new Schema(
   {
     title: { type: String, required: true },
-    author: String,
+    author: { type: Schema.Types.ObjectId, ref: 'user', required: true },
     contents: String,
     tags: [String],
   },
