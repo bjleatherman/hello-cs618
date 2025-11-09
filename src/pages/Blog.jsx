@@ -3,9 +3,10 @@ import { CreatePost } from '../components/CreatePost.jsx'
 import { PostFilter } from '../components/PostFilter.jsx'
 import { PostSorting } from '../components/PostSorting.jsx'
 import { Header } from '../components/Header.jsx'
+import { Helmet } from 'react-helmet-async'
+import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getPosts } from '../api/posts.js'
-import { useState } from 'react'
 export function Blog() {
   const [author, setAuthor] = useState('')
   const [sortBy, setSortBy] = useState('createdAt')
@@ -17,10 +18,17 @@ export function Blog() {
   const posts = postsQuery.data ?? []
   return (
     <div style={{ padding: 8 }}>
+      <Helmet>
+        <title>Full-Stack React Blog</title>
+        <meta
+          name='description'
+          content='A blog full of articles about full-stack React development.'
+        />
+      </Helmet>
+      <h1>Welcome to my Blog!</h1>
       <Header />
       <br />
       <hr />
-      <h1>Welcome to my Blog!</h1>
       <CreatePost />
       <br />
       <hr />
