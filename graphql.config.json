@@ -1,0 +1,4 @@
+{
+  "schema": "https://foul-fishsticks-j7q594w595rhpq97-3000.app.github.dev/graphql",
+  "documents": "src/api/graphql/**/*.{js,jsx}"
+}
