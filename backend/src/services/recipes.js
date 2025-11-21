@@ -1,5 +1,7 @@
+import { io } from 'socket.io-client'
 import { Recipe } from '../db/models/recipe.js'
 import { User } from '../db/models/user.js'
+import { sendMassNotification } from './notifications.js'
 
 // Create Recipe Here :)
 export async function createRecipe(
@@ -24,6 +26,8 @@ export async function createRecipe(
     instructions: instructions?.trim() || undefined,
     tags,
   })
+
+  sendMassNotification(io, { recipe })
   return await recipe.save()
 }
 
